@@ -7,7 +7,7 @@ const bcrypt =require("bcrypt")
 router.post("/:id", async (req, res) => {
     const newPost = new Post(req.body)
     try {
-        const savedPost = newPost.save();
+        const savedPost = await newPost.save();
         res.status(200).json(savedPost)
     } catch (err){
         res.status(500).json(err);
@@ -65,9 +65,26 @@ router.get("/:id", async(req,res)=>{
 })
 
 //Get all posts
-// router.get("/", async(req,res)=>{
+router.get("/", async(req,res)=>{
+    const username = req.query.user
+    const catname = req.query.cat
+    try{
+        let posts;
+        if(username){
+            posts = await Posts.find({username})
+        } else if(catname){
+            posts = await Posts.find({categories:{
+                $in:[catname]
+            }})
+        } else{
+            posts = await Post.find()
+        }
+        res.status(200).json(posts)
+    }catch(err){
+        res.status(500).json(err)
+    }
 
-// })
+})
 
   
 
