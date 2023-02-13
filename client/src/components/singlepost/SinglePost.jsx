@@ -11,8 +11,8 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const result = await axios.get("/posts/"+path)
-      setPost(result.data)
+      const response = await axios.get("/posts/"+path)
+      setPost(response.data)
     }
     getPost();
   }, [path]);
@@ -36,13 +36,15 @@ export default function SinglePost() {
           </div>
         </h1>
         <div className="singlePostInfo">
-          <span>
+          <span className="singlePostAuthor">
             Author:
-            <b className="singlePostAuthor">
-              {post.username}
-            </b>
+            <Link to={`/?user=${post.username}`} className="link">
+              <b> {post.username}</b>
+            </Link>
           </span>
-          <span>{new Date(post.createdAt).toDateString()}</span>
+          <span className="singlePostDate">
+            {new Date(post.createdAt).toDateString()}
+          </span>
         </div>
         <p className="singlePostDesc">
           {post.description}
