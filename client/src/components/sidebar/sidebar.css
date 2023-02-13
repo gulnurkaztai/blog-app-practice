@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
   
   .sidebarTitle {
@@ -43,12 +44,16 @@
   .sidebarList {
     list-style-type: none;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
   }
   
   .sidebarListItem {
     display: inline-block;
     width: 50%;
-    margin-top: 15px;
+    margin: 5px;
     cursor: pointer;
   }
   
