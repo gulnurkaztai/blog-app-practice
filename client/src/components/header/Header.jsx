@@ -4,12 +4,12 @@ export default function Header() {
   return (
     <div className="header">
       <div className="headerTitles">
-        <span className="headerTitleSm">React & Node</span>
-        <span className="headerTitleLg">Blog</span>
+        <span className="headerTitleSm">Carpe coca, seize the chocolate</span>
+
       </div>
       <img
         className="headerImg"
-        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        src="https://e0.pxfuel.com/wallpapers/849/707/desktop-wallpaper-happiness-style-happy-chocolate-day-9th-february-2014-dark-chocolate.jpg"
         alt=""
       />
     </div>
